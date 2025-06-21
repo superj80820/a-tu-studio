@@ -1,0 +1,25 @@
+{
+  "name": "course-booking-system",
+  "version": "1.0.0",
+  "description": "課程預約系統",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^6.8.0",
+    "date-fns": "^2.29.3",
+    "lucide-react": "^0.263.1"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.38",
+    "@types/react-dom": "^17.0.11",
+    "@vitejs/plugin-react": "^1.3.2",
+    "vite": "^2.9.15",
+    "vite-plugin-pwa": "^1.0.0"
+  }
+}
