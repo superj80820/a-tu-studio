@@ -1,35 +1,23 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-// import { VitePWA } from 'vite-plugin-pwa'
 
 export default defineConfig({
   plugins: [
-    react(),
-    // VitePWA({
-    //   registerType: 'autoUpdate',
-    //   manifest: {
-    //     name: '課程預約系統',
-    //     short_name: '預約系統',
-    //     description: '現代化的課程預約網站',
-    //     theme_color: '#F97316',
-    //     background_color: '#FFF7ED',
-    //     display: 'standalone',
-    //     start_url: '/',
-    //     icons: [
-    //       {
-    //         src: '/icon-192.png',
-    //         sizes: '192x192',
-    //         type: 'image/png'
-    //       },
-    //       {
-    //         src: '/icon-512.png',
-    //         sizes: '512x512',
-    //         type: 'image/png'
-    //       }
-    //     ]
-    //   }
-    // })
+    react()
   ],
+  define: {
+    __DEFINES__: '{}',
+    __HMR_PROTOCOL__: '"http"',
+    __HMR_HOSTNAME__: '"localhost"',
+    __HMR_PORT__: '24678',
+    __HMR_TIMEOUT__: '30000',
+    __HMR_ENABLE_OVERLAY__: 'true',
+    __BASE__: '"/"',
+    __MODE__: '"production"',
+    __DEV__: 'false',
+    __PROD__: 'true',
+    __SSR__: 'false'
+  },
   server: {
     port: 3000,
     open: true
