@@ -89,11 +89,8 @@ email: formData.email,
 notes: formData.notes
       `
       
-      // 將數據轉換為 URL 參數
-      const params = new URLSearchParams(bookingData)
-      
       // 發送 GET 請求
-      const response = await fetch(`https://script.google.com/macros/s/AKfycbzZyl3F33MinQN8VyqB7AmBlSZbr3xkDoyXs-UWbEiqC8iriGyK_DXN1jos3SIDYnc/exec?to=Cfcf86098df9c03c57803c9efe15df779&t=${params.toString()}`, {
+      const response = await fetch(`https://script.google.com/macros/s/AKfycbzZyl3F33MinQN8VyqB7AmBlSZbr3xkDoyXs-UWbEiqC8iriGyK_DXN1jos3SIDYnc/exec?to=Cfcf86098df9c03c57803c9efe15df779&t=${bookingData}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
