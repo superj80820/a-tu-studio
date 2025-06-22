@@ -80,15 +80,14 @@ const Booking = () => {
     
     try {
       // 準備預約數據
-      const bookingData = {
-        date: format(selectedDate, 'yyyy-MM-dd'),
-        time: selectedTime,
-        course: selectedCourse,
-        name: formData.name,
-        phone: formData.phone,
-        email: formData.email,
-        notes: formData.notes
-      }
+      const bookingData = `date: format(selectedDate, 'yyyy-MM-dd'),
+time: selectedTime,
+course: selectedCourse,
+name: formData.name,
+phone: formData.phone,
+email: formData.email,
+notes: formData.notes
+      `
       
       // 將數據轉換為 URL 參數
       const params = new URLSearchParams(bookingData)
