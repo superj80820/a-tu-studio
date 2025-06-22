@@ -15,6 +15,7 @@ const Booking = () => {
     notes: ''
   })
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
 
   const courses = [
     { id: 1, name: '陶藝課', price: 550 },
@@ -68,29 +69,60 @@ const Booking = () => {
     }))
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     if (!selectedDate || !selectedTime || !selectedCourse) {
       alert('請選擇日期、時間和課程')
       return
     }
     
-    // 這裡可以添加實際的預約邏輯
-    console.log('預約資訊:', {
-      date: selectedDate,
-      time: selectedTime,
-      course: selectedCourse,
-      ...formData
-    })
+    setIsLoading(true)
     
-    setIsSubmitted(true)
-    setTimeout(() => {
-      setIsSubmitted(false)
-      setSelectedDate(null)
-      setSelectedTime(null)
-      setSelectedCourse('')
-      setFormData({ name: '', phone: '', email: '', notes: '' })
-    }, 3000)
+    try {
+      // 準備預約數據
+      const bookingData = {
+        date: format(selectedDate, 'yyyy-MM-dd'),
+        time: selectedTime,
+        course: selectedCourse,
+        name: formData.name,
+        phone: formData.phone,
+        email: formData.email,
+        notes: formData.notes
+      }
+      
+      // 將數據轉換為 URL 參數
+      const params = new URLSearchParams(bookingData)
+      
+      // 發送 GET 請求
+      const response = await fetch(`https://script.google.com/macros/s/AKfycbzZyl3F33MinQN8VyqB7AmBlSZbr3xkDoyXs-UWbEiqC8iriGyK_DXN1jos3SIDYnc/exec?to=Cfcf86098df9c03c57803c9efe15df779&t=${params.toString()}`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+      
+      if (response.ok) {
+        const result = await response.json()
+        console.log('預約成功:', result)
+        
+        // 顯示成功訊息
+        setIsSubmitted(true)
+        setTimeout(() => {
+          setIsSubmitted(false)
+          setSelectedDate(null)
+          setSelectedTime(null)
+          setSelectedCourse('')
+          setFormData({ name: '', phone: '', email: '', notes: '' })
+        }, 3000)
+      } else {
+        throw new Error(`HTTP error! status: ${response.status}`)
+      }
+    } catch (error) {
+      console.error('預約失敗:', error)
+      alert('預約失敗')
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   const isDateDisabled = (date) => {
@@ -104,7 +136,7 @@ const Booking = () => {
       <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
         <h1 className="section-title">課程預約</h1>
         <p style={{ fontSize: '1.25rem', color: '#6b7280' }}>
-          選擇您想要的課程和時間，輕鬆完成預約
+          選擇您想要的課程和時間預約，預約完畢後阿土工作室會主動聯絡確認是否預約成功，並進行付款～
         </p>
       </div>
 
@@ -269,6 +301,21 @@ const Booking = () => {
               </div>
 
               <div className="form-group">
+                <label className="form-label">
+                  <Mail size={16} style={{ marginRight: '0.5rem' }} />
+                  Instagram(選填)
+                </label>
+                <input
+                  type="text"
+                  name="instagram"
+                  value={formData.instagram}
+                  onChange={handleInputChange}
+                  className="form-input"
+                  required
+                />
+              </div>
+
+              <div className="form-group">
                 <label className="form-label">備註</label>
                 <textarea
                   name="notes"
@@ -298,9 +345,9 @@ const Booking = () => {
                 type="submit" 
                 className="btn btn-primary"
                 style={{ width: '100%' }}
-                disabled={!selectedDate || !selectedTime || !selectedCourse}
+                disabled={!selectedDate || !selectedTime || !selectedCourse || isLoading}
               >
-                確認預約
+                {isLoading ? '預約中...' : '確認預約'}
               </button>
             </form>
           )}
