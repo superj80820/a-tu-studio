@@ -80,14 +80,7 @@ const Booking = () => {
     
     try {
       // 準備預約數據
-      const bookingData = `date: format(selectedDate, 'yyyy-MM-dd'),
-time: selectedTime,
-course: selectedCourse,
-name: formData.name,
-phone: formData.phone,
-email: formData.email,
-notes: formData.notes
-      `
+      const bookingData = `asfasdf`
       
       // 發送 GET 請求
       const response = await fetch(`https://script.google.com/macros/s/AKfycbzZyl3F33MinQN8VyqB7AmBlSZbr3xkDoyXs-UWbEiqC8iriGyK_DXN1jos3SIDYnc/exec?to=Cfcf86098df9c03c57803c9efe15df779&t=${bookingData}`, {
