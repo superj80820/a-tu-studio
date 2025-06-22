@@ -12,6 +12,7 @@ const Booking = () => {
     name: '',
     phone: '',
     email: '',
+    instagram: '',
     notes: ''
   })
   const [isSubmitted, setIsSubmitted] = useState(false)
@@ -69,6 +70,21 @@ const Booking = () => {
     }))
   }
 
+  const handleSubmitted = async (response) => {
+    const result = await response.json()
+    console.log('預約成功:', result)
+    
+    // 顯示成功訊息
+    setIsSubmitted(true)
+    setTimeout(() => {
+      setIsSubmitted(false)
+      setSelectedDate(null)
+      setSelectedTime(null)
+      setSelectedCourse('')
+      setFormData({ name: '', phone: '', email: '', instagram: '', notes: '' })
+    }, 3000)
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault()
     if (!selectedDate || !selectedTime || !selectedCourse) {
@@ -79,11 +95,12 @@ const Booking = () => {
     setIsLoading(true)
     
     try {
-      // 準備預約數據
-      const bookingData = `asfasdf`
+      // 準備預約數據，使用中文日期格式
+      const chineseDate = format(selectedDate, 'yyyy年M月d日', { locale: zhTW })
+      const bookingData = `${formData.name}報名${selectedCourse}囉，電話是 ${formData.phone}，email 是 ${formData.email}，ig 是 ${formData.instagram}，時間是 ${chineseDate} ${selectedTime}，要做事囉`
       
       // 發送 GET 請求
-      const response = await fetch(`https://script.google.com/macros/s/AKfycbzZyl3F33MinQN8VyqB7AmBlSZbr3xkDoyXs-UWbEiqC8iriGyK_DXN1jos3SIDYnc/exec?to=Cfcf86098df9c03c57803c9efe15df779&t=${bookingData}`, {
+      const response = await fetch(`https://script.google.com/macros/s/AKfycbzZyl3F33MinQN8VyqB7AmBlSZbr3xkDoyXs-UWbEiqC8iriGyK_DXN1jos3SIDYnc/exec?to=Cfcf86098df9c03c57803c9efe15df779&t=${encodeURIComponent(bookingData)}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'text/plain',
@@ -91,9 +108,6 @@ const Booking = () => {
       })
       
       if (response.ok) {
-        const result = await response.json()
-        console.log('預約成功:', result)
-        
         // 顯示成功訊息
         setIsSubmitted(true)
         setTimeout(() => {
@@ -101,14 +115,22 @@ const Booking = () => {
           setSelectedDate(null)
           setSelectedTime(null)
           setSelectedCourse('')
-          setFormData({ name: '', phone: '', email: '', notes: '' })
+          setFormData({ name: '', phone: '', email: '', instagram: '', notes: '' })
         }, 3000)
       } else {
         throw new Error(`HTTP error! status: ${response.status}`)
       }
     } catch (error) {
       console.error('預約失敗:', error)
-      alert('預約失敗')
+      // 即使失敗也顯示成功訊息（根據你的需求）
+      setIsSubmitted(true)
+      setTimeout(() => {
+        setIsSubmitted(false)
+        setSelectedDate(null)
+        setSelectedTime(null)
+        setSelectedCourse('')
+        setFormData({ name: '', phone: '', email: '', instagram: '', notes: '' })
+      }, 3000)
     } finally {
       setIsLoading(false)
     }
@@ -300,7 +322,6 @@ const Booking = () => {
                   value={formData.instagram}
                   onChange={handleInputChange}
                   className="form-input"
-                  required
                 />
               </div>
 

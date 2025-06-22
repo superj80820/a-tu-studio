@@ -12,7 +12,7 @@ const Courses = () => {
       name: '茶席體驗',
       description: '提供當天茶品，可選熱或冰',
       price: 780,
-      duration: '2',
+      duration: '2小時',
       maxStudents: 4,
       category: 'art',
       rating: 5,
@@ -83,9 +83,9 @@ const Courses = () => {
   return (
     <div className="container">
       <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-        <h1 className="section-title">課程品項</h1>
+        <h1 className="section-title">課程</h1>
         <p style={{ fontSize: '1.25rem', color: '#6b7280' }}>
-          探索我們豐富的課程內容，找到最適合您的學習選擇
+          玩陶、喝茶、畫畫！
         </p>
       </div>
 
