@@ -17,16 +17,14 @@ const Booking = () => {
   const [isSubmitted, setIsSubmitted] = useState(false)
 
   const courses = [
-    { id: 1, name: '繪畫基礎課程', price: 2500 },
-    { id: 2, name: '程式設計入門', price: 3200 },
-    { id: 3, name: '音樂創作課程', price: 2800 },
-    { id: 4, name: '攝影技巧進階', price: 3500 },
-    { id: 5, name: '網頁設計實戰', price: 4000 },
-    { id: 6, name: '瑜珈身心平衡', price: 1800 }
+    { id: 1, name: '陶藝課', price: 550 },
+    { id: 2, name: '畫畫課', price: 500 },
+    { id: 3, name: '茶席體驗', price: 780 },
+    { id: 4, name: '烤茶體驗', price: 550 },
   ]
 
   const timeSlots = [
-    '09:00', '10:00', '11:00', '14:00', '15:00', '16:00', '19:00', '20:00'
+    '10:30', '11:00', '11:30', '12:00', '12:30', '13:00', '13:30', '14:00', '14:30', '15:00', '15:30', '16:00', '16:30', '17:00', '17:30', '18:00'
   ]
 
   const monthStart = startOfMonth(currentDate)

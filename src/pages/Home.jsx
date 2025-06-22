@@ -33,13 +33,6 @@ const Home = () => {
               <h3>自由彈性風格</h3>
               <p>提供多樣化的課程選擇，從基礎到進階，滿足不同學習需求</p>
             </div>
-            <div className="feature-card">
-              <div className="feature-icon">
-                <Star size={32} />
-              </div>
-              <h3>優質體驗</h3>
-              <p>舒適的學習環境，讓您享受最佳的學習體驗</p>
-            </div>
           </div>
         </div>
       </section>
@@ -47,15 +40,15 @@ const Home = () => {
       {/* Popular Courses Preview */}
       <section className="section" style={{ background: '#f8fafc' }}>
         <div className="container">
-          <h2 className="section-title">熱門課程</h2>
+          <h2 className="section-title">有哪些課程</h2>
           <div className="grid grid-cols-3">
             <div className="course-card">
               <div className="course-image">
-                <img src="/1.jpg" alt="基礎課程" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <img src="/1.jpg" alt="陶藝課" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
               <div className="course-content">
-                <h3 className="course-title">基礎課程</h3>
-                <p className="course-description">學習基本的陶土技巧，培養藝術美感</p>
+                <h3 className="course-title">陶藝課</h3>
+                <p className="course-description">自由創作手捏與手拉，依照當天土料給予</p>
                 <div className="course-price">NT$ 550</div>
                 <Link to="/courses" className="btn btn-primary">
                   了解更多
@@ -64,12 +57,12 @@ const Home = () => {
             </div>
             <div className="course-card">
               <div className="course-image">
-                <img src="/2.jpg" alt="自己的骨灰壇製作！" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <img src="/5.jpg" alt="茶席體驗" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
               <div className="course-content">
-                <h3 className="course-title">自己的骨灰壇製作！</h3>
-                <p className="course-description">創造自己的骨灰壇，讓自己走得有尊嚴</p>
-                <div className="course-price">NT$ 3,200</div>
+                <h3 className="course-title">茶席體驗</h3>
+                <p className="course-description">提供當天茶品，可選熱或冰</p>
+                <div className="course-price">NT$ 780</div>
                 <Link to="/courses" className="btn btn-primary">
                   了解更多
                 </Link>
@@ -77,12 +70,12 @@ const Home = () => {
             </div>
             <div className="course-card">
               <div className="course-image">
-                <img src="/3.jpg" alt="陶瓷瓷器製作" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <img src="/4.jpg" alt="畫畫課" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
               <div className="course-content">
-                <h3 className="course-title">陶瓷瓷器製作</h3>
-                <p className="course-description">自己的碗自己做，自己的杯子自己做</p>
-                <div className="course-price">NT$ 2,800</div>
+                <h3 className="course-title">畫畫課</h3>
+                <p className="course-description">自由隨意塗鴉，老師提供材料</p>
+                <div className="course-price">NT$ 500</div>
                 <Link to="/courses" className="btn btn-primary">
                   了解更多
                 </Link>
@@ -98,7 +91,7 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="section">
+      {/* <section className="section">
         <div className="container">
           <div style={{ textAlign: 'center' }}>
             <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>你的靈魂在哪？</h2>
@@ -110,7 +103,7 @@ const Home = () => {
             </Link>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   )
 }
