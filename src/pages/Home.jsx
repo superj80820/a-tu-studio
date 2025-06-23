@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { BookOpen, Calendar, Users, Star, Instagram, Facebook } from 'lucide-react'
+import { BookOpen, Calendar, Users, Star, Instagram, Facebook, MapPin } from 'lucide-react'
 
 const Home = () => {
   return (
@@ -117,6 +117,58 @@ const Home = () => {
             <Link to="/courses" className="btn btn-primary">
               查看所有課程
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Location Section */}
+      <section className="section">
+        <div className="container">
+          <h2 className="section-title">工作室位置</h2>
+          <div className="location-container">
+            <div className="location-info">
+              <div className="location-header">
+                <MapPin className="location-icon" size={32} />
+                <h3>阿土工作室</h3>
+              </div>
+              <div className="location-details">
+                <p><strong>地址：</strong>台中市清水區光復街92號</p>
+                <p><strong>營業時間：</strong>24小時營業</p>
+                <p><strong>電話：</strong>0908928633</p>
+                <p><strong>交通方式：</strong></p>
+                <ul>
+                  <li>開車：附近有<a href="https://g.co/kgs/UCvUxnH" target="_blank" rel="noopener noreferrer">牛罵頭收費停車場</a></li>
+                </ul>
+              </div>
+              <div className="location-actions">
+                <a 
+                  href="https://maps.google.com/?q=台中市清水區光復街92號" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="btn btn-primary"
+                >
+                  在 Google Maps 中查看
+                </a>
+                <a 
+                  href="tel:0223456789" 
+                  className="btn btn-secondary"
+                >
+                  撥打電話
+                </a>
+              </div>
+            </div>
+            <div className="map-container">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3637.1587529197104!2d120.57543100000001!3d24.271185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346915d329c4a771%3A0x429c50c823ca71b9!2z6Zi_5Zyf5bel5L2c5a6k!5e0!3m2!1szh-TW!2stw!4v1750683571358!5m2!1szh-TW!2stw"
+                width="100%"
+                height="400"
+                style={{ border: 0, borderRadius: '1rem' }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="阿土工作室位置"
+              ></iframe>
+            </div>
           </div>
         </div>
       </section>

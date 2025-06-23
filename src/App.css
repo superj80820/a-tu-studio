@@ -364,6 +364,72 @@ main {
   height: 100%;
 }
 
+/* 地圖區塊樣式 */
+.location-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.location-info {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 4px 6px -1px rgba(249, 115, 22, 0.10);
+}
+
+.location-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.location-icon {
+  color: #F97316;
+  margin-right: 1rem;
+}
+
+.location-header h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1F2937;
+  margin: 0;
+}
+
+.location-details {
+  margin-bottom: 2rem;
+}
+
+.location-details p {
+  margin-bottom: 0.75rem;
+  color: #374151;
+  line-height: 1.6;
+}
+
+.location-details ul {
+  margin: 0.5rem 0 0 1.5rem;
+  color: #374151;
+}
+
+.location-details li {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+.location-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.map-container {
+  background: #fff;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(249, 115, 22, 0.10);
+}
+
 /* 響應式設計 */
 @media (max-width: 768px) {
   .hero h1 {
@@ -382,5 +448,19 @@ main {
   .social-link svg {
     width: 20px;
     height: 20px;
+  }
+  
+  .location-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .location-actions {
+    flex-direction: column;
+  }
+  
+  .location-actions .btn {
+    width: 100%;
+    text-align: center;
   }
 } 
