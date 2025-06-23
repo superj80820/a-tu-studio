@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { BookOpen, Calendar, Users, Star } from 'lucide-react'
+import { BookOpen, Calendar, Users, Star, Instagram, Facebook } from 'lucide-react'
 
 const Home = () => {
   return (
@@ -10,13 +10,44 @@ const Home = () => {
         <div className="container">
           <h1>阿土工作室</h1>
           <p>要學陶，買茶請找我<br/>講信用，品質100分。</p>
-          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '2rem' }}>
             <Link to="/courses" className="btn btn-primary">
               瀏覽課程
             </Link>
             <Link to="/booking" className="btn btn-secondary">
               立即預約
             </Link>
+          </div>
+          
+          {/* 社群媒體連結 */}
+          <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', alignItems: 'center' }}>
+            <a 
+              href="https://www.instagram.com/pottery0703" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="social-link"
+              title="Instagram"
+            >
+              <Instagram size={24} />
+            </a>
+            <a 
+              href="https://www.facebook.com/chen.ruo.yu.722185" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="social-link"
+              title="Facebook"
+            >
+              <Facebook size={24} />
+            </a>
+            <a 
+              href="https://www.pinkoi.com/store/tutubaby" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="social-link"
+              title="Pinkoi"
+            >
+              <span style={{ fontSize: '20px', fontWeight: 'bold', color: '#fff' }}>P</span>
+            </a>
           </div>
         </div>
       </section>
